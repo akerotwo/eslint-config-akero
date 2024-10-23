@@ -20,7 +20,7 @@ npm install --save-dev git+https://github.com/akerotwo/eslint-config-akero.git @
 
 ## Create Files
 
-### eslint.config.js
+### eslint.config.mjs
 ```js
 import eslint from 'eslint-config-akero';
 export default [...eslint];
