@@ -1,0 +1,23 @@
+name: Shai-Hulud 2.0 Security Check
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  security-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.AKERO_TWO_FULL_REPO_ACCESS }}
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: package.json
+      - run: |
+          npm install
+      - uses: akerotwo/Shai-Hulud-2.0-Detector@main
+        with:
+          fail-on-critical: true
