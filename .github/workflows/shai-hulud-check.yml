@@ -11,8 +11,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
-          token: ${{ secrets.AKERO_TWO_FULL_REPO_ACCESS }}
+          node-version-file: package.json
+      - run: |
+          npm i --package-lock-only
       - uses: akerotwo/Shai-Hulud-2.0-Detector@main
         with:
           fail-on-critical: true
