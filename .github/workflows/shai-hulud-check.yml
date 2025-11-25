@@ -15,6 +15,7 @@ jobs:
         with:
           node-version-file: package.json
       - run: |
+          npm config set ignore-scripts true
           npm i --package-lock-only
       - uses: akerotwo/Shai-Hulud-2.0-Detector@main
         with:
