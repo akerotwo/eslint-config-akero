@@ -1,0 +1,15 @@
+name: Backup Version to S3
+
+on:
+  push:
+    branches:
+      - 'version/*.*.*'
+
+jobs:
+  backup:
+    uses: akerotwo/github-actions-workflows/.github/workflows/backup-to-s3.yml@main
+    with:
+      ref: ${{ github.ref_name }}
+      s3_prefix: version
+    secrets: inherit
+
